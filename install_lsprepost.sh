@@ -14,5 +14,12 @@ mv lsprepost4.9_common_gtk3/ lsprepost/
 # Enter inside the newly created folder
 cd lsprepost/
 
+# Also, create a shortcut of the program to the desktop for easy accessibility
+cd ~/Desktop
+echo './lspp49'>>lsprepost.sh
+# Setting the permission of the program
+chmod ugo+x lsprepost.sh
+
 # Finally, run the LS-PrePost v4.9
+cd ~/lsprepost
 ./lspp49
