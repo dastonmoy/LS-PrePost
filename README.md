@@ -1,9 +1,5 @@
-# LS-Prepost
-The repository will shed light on the installation procedure for LS-PrePost: a Pre and Postprocessing freeware used for LS-Dyna developed by its parent company LSTC
-
-﻿# LS-Dyna Environment Setup for Ubuntu (Unix) OS
-
-This document can be considered as a step-by-step guide to install and work with LS-Dyna in Ubuntu or similar Unix operating system.
+# LS-PrePost Environment Setup to work in LS-Dyna in Unix OSs
+The repository will shed light on the installation procedure for LS-PrePost: a Pre and Postprocessing freeware used for LS-Dyna developed by its parent company LSTC. It can be considered as a step-by-step guide to install and open LS-Dyna in Ubuntu or similar Unix operating system.
 
 ## First Time LS-PrePost Installation
 
