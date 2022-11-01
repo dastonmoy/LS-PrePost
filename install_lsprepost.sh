@@ -11,12 +11,14 @@ tar -xvzf ./lsprepost-4.9.9-common_gtk3-14Oct2022.tgz
 # Change the folder name to some convenient one so that it can be accessed easily
 mv lsprepost4.9_common_gtk3/ lsprepost/
 
-# Enter inside the newly created folder
-cd lsprepost/
+# Now, move the folder to the home directory of user
+mv lsprepost/ ~
 
 # Also, create a shortcut of the program to the desktop for easy accessibility
 cd ~/Desktop
-echo './lspp49'>>lsprepost.sh
+echo 'cd ~/lsprepost
+./lspp49'>>lsprepost.sh
+
 # Setting the permission of the program
 chmod ugo+x lsprepost.sh
 
