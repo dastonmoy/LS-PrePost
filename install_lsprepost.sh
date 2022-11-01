@@ -25,7 +25,7 @@ echo 'cd ~/lsprepost
 ./lspp49'>>LS-PrePost.sh
 
 # Setting the permission of the program
-chmod ugo+x lsprepost.sh
+chmod ugo+x LS-PrePost.sh
 
 # Finally, running the executable from the desktop
 ./LS-PrePost.sh
