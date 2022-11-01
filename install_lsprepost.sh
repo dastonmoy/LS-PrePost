@@ -27,5 +27,12 @@ echo 'cd ~/lsprepost
 # Setting the permission of the program
 chmod ugo+x LS-PrePost.sh
 
-# Finally, running the executable from the desktop
-./LS-PrePost.sh
+# Finally, running the executable from the desktop depending on user input
+while true; do
+    read -p "Do you wish to use LS-PrePost Now? " yn
+    case $yn in
+        [Yy]* ) cd ~/Desktop; ./LS-PrePost.sh; exit;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
