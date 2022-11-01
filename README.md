@@ -47,4 +47,9 @@ rm -rf ~/LS-PrePost
 ```
 
 ## Opening LS-PrePost After Installation
-For any subsequent access to the software, you just have to make the script created on your desktop as "executable".
+For any subsequent access to the software, you just have to make the script created on your desktop as "executable". To do so, please go to the "Desktop" of your computer and select the "LS-PrePost". Then go to the "Permissions" tab at the top of the dialogue box. Finally, mark the program as executable, like this:
+
+
+![Marking the LS-PrePost as executable](images/placeholder.png)
+
+Now, just double click the program on the Desktop and run the PrePost!
