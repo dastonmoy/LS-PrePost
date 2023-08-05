@@ -1,38 +1,49 @@
 # !/bin/sh
 # Install LS-PrePost from scratch
-# Written by Tonmoy. Last update: 11/01/22
+# Written by Tonmoy. Original: 11/01/22
 
-# Get the installer from the LSTC ftp through wget
-wget --user user --password computer https://ftp.lstc.com/user/ls-prepost/4.9/linux64/lsprepost-4.9.9-common_gtk3-14Oct2022.tgz
+# ==========================================
+# Update (08/02/23)
+# Modified so that the installer can be used
+# for any LS-PrePost version available in
+#       the LSTC ftp (ftp.lstc.com)
+# ==========================================
 
-# Extracting the contents of the folder
-tar -xvzf ./lsprepost-4.9.9-common_gtk3-14Oct2022.tgz
+# Remove any previously installed programs with this script
+rm -rf ~/Desktop/LS-PrePost
+rm -rf ~/opt/lsprepost
+
+# The file name of the LS-PrePost version
+Filename=$1
+
+## Extract the version number from the filename
+version=$(echo $Filename | grep -oP '(?<=lsprepost-)\d+.\d+' | cut -d '.' -f 1-2)
+
+## Download the software using the variables
+wget -O lsprepost.tgz --user user --password computer https://ftp.lstc.com/user/ls-prepost/$version/linux64/$Filename
+
+# Extract the contents of the folder to the ~/opt directory
+mkdir -p ~/opt
+tar -xvzf lsprepost.tgz -C ~/opt
 
 # Change the folder name to some convenient one so that it can be accessed easily
-mv lsprepost4.9_common_gtk3/ lsprepost/
+mv ~/opt/lsprepost*/ ~/opt/lsprepost/
 
-# Now, move the folder to the home directory of user
-mv lsprepost/ ~
+# Change the directory name inside the actual executable of the program
+## Extract the version without the dot's and subbranches
+version=$(echo $Filename | grep -oP '(?<=lsprepost-)\d+.\d+' | tr -d '.')
+sed -i 's/DN=".*"/DN="$(pwd)"/g' ~/opt/lsprepost/lspp$version
 
-# And change the directory name inside the actual executable of the program
-cd ~/lsprepost
-sed -i 's/lsprepost4.9_common_gtk3/lsprepost/g' lspp49
+# Create a symbolic link to the executable on the desktop
+cd ~/opt/lsprepost
+ln -s $(pwd)/lspp$version ~/Desktop/LS-PrePost
 
-
-# Also, create a shortcut of the program to the desktop for easy accessibility
-cd ~/Desktop
-echo 'cd ~/lsprepost
-./lspp49'>>LS-PrePost.sh
-
-# Setting the permission of the program
-chmod ugo+x LS-PrePost.sh
-
-# Finally, running the executable from the desktop depending on user input
+# Run the executable from the desktop depending on user input
 while true; do
-    read -p "Do you wish to use LS-PrePost Now? " yn
+    read -n 1 -p "Do you wish to use LS-PrePost Now? (y/n) " yn
     case $yn in
-        [Yy]* ) cd ~/Desktop; ./LS-PrePost.sh; exit;;
+        [Yy]* ) cd ~/Desktop; ./LS-PrePost; exit;;
         [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
+        * ) echo "Please answer y or n.";;
     esac
 done

@@ -1,32 +1,39 @@
 # LS-PrePost Environment Setup to work in LS-Dyna in Unix OSs
-The repository will shed light on the installation procedure for LS-PrePost: a Pre and Postprocessing freeware used for LS-Dyna developed by its parent company LSTC. It can be considered as a step-by-step guide to install and open LS-Dyna in Ubuntu or similar Unix operating system.
+This repository will shed light on the installation procedure for LS-PrePost: a free pre- and post-processing software used for LS-Dyna, developed by its parent company LSTC. It can be considered as a step-by-step guide to install and run LS-Dyna in Ubuntu or similar Unix operating systems.
 
 ## First Time LS-PrePost Installation
 
-LS-PrePost is a freeware developed by LSTC. Its main purpose was to establish a GUI tool for generating the keyword file for LS-Dyna solver. It has most of the capabilities to create geometry and meshes, assign boundary conditions and advanced manipulation like all those commercial preprocessors available for LS-Dyna ([Oasys](https://www.oasys-software.com/dyna/software/), [HyperMesh](https://www.altair.com/hypermesh)), if not all. It can also be used as a postprocessor to open and work with the output files from the solver.
+LS-PrePost is a freeware developed by LSTC. Its main purpose was to establish a GUI tool for generating the keyword file for the LS-Dyna solver. It has most of the capabilities to create geometry and meshes, assign boundary conditions, and perform advanced manipulation like all those commercial preprocessors available for LS-Dyna ([Oasys](https://www.oasys-software.com/dyna/software/), [HyperMesh](https://www.altair.com/hypermesh), [ANSA](https://www.beta-cae.com/ansa.htm)), if not all. It can also be used as a post-processor to open and work with the output files from the solver.
 
-The installation of LS-PrePost is quite straightforward. You just have to open the terminal in your Ubuntu and copy the followings there:
+The installation of LS-PrePost is quite straightforward. You just have to open the terminal in your machine and copy the following commands there:
 
 ### Computer Installation
 
 ```bash
-# Go to home directory of the user
+# Go to the home directory of the user
 cd ~
-# Clone my repository from github
+# Clone this repository from GitHub
 git clone https://github.com/dastonmoy/LS-PrePost.git
 # Enter into the folder
 cd ./LS-PrePost
-# Run the installer, it would do everything for you
-bash install_lsprepost.sh
-# Remove the github repo
+# Run the installer, it will do everything for you.
+# When running the installer, you will also need to include the full name of the
+# LS-PrePost version you intend to install. 
+# For example, if you want to install the LS-PrePost v4.10, you will go to
+# https://ftp.lstc.com/anonymous/outgoing/lsprepost/, select the directory 4.10,
+# open the directory named linux64. Then all the LS-PrePost subversions
+# available will be displayed. From there, you will just select and copy the latest one named as
+# "lsprepost-4.10.5-common_gtk3-23Jun2023.tgz" for installation.
+bash install_lsprepost.sh <paste your own filename, e.g., lsprepost-4.10.5-common_gtk3-23Jun2023.tgz>
+# Remove the GitHub repo
 rm -rf ~/LS-PrePost
 ```
-For any subsequent access to the software, you just have to make the script created on your desktop as "executable".
+For any subsequent access to the software, you just need to make the symlink "LS-PrePost" stored in your desktop directory [as "executable"](#opening-ls-prepost-after-installation).
 
 
 ### Server Installation
 
-For installation in the server just changing the cloning repository to wget would suffice:
+For installation on the server, just changing the cloning repository to wget would suffice:
 
 ```bash
 # Go to home directory of the user
@@ -36,16 +43,23 @@ mkdir LS-PrePost; cd ~/LS-PrePost
 wget https://raw.githubusercontent.com/dastonmoy/LS-PrePost/main/install_lsprepost.sh
 # Enter into the folder
 cd ./LS-PrePost
-# Run the installer, it would do everything for you
-bash install_lsprepost.sh
+# Run the installer, it would do everything for you.
+# When running the installer, you will also need to include the full name of the
+# LS-PrePost version you intend to install. 
+# For example, I want to install the LS-PrePost v4.10. I will go to
+# https://ftp.lstc.com/anonymous/outgoing/lsprepost/, select the directory 4.10,
+# open the directory named linux64. Then all the LS-PrePost subversions
+# available will be exposed. From where I will just select and copy the latest one named as
+# "lsprepost-4.10.5-common_gtk3-23Jun2023.tgz" for installation.
+bash install_lsprepost.sh <paste your own filename, e.g., lsprepost-4.10.5-common_gtk3-23Jun2023.tgz>
 # Remove the github repo
 rm -rf ~/LS-PrePost
 ```
 
 ## Opening LS-PrePost After Installation
-For any subsequent access to the software, you just have to make the script created on your desktop as "executable". To do so, please go to the "Desktop" of your computer and select the "LS-PrePost". Then go to the "Permissions" tab at the top of the dialogue box. Finally, mark the program as executable, like this:
+For any subsequent access to the software, you just have to make the script created on your desktop as “executable”. To do so, please go to the “Desktop” of your computer and select “LS-PrePost”. Then go to the “Permissions” tab at the top of the dialogue box. Finally, mark the program as executable, like this:
 
 
 ![Marking the LS-PrePost as executable](images/placeholder.png)
 
-Now, just double click the program on the Desktop and run the PrePost!
+Now, just double-click on the program on your desktop and run PrePost!
