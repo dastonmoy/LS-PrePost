@@ -9,6 +9,12 @@
 #       the LSTC ftp (ftp.lstc.com)
 # ==========================================
 
+# ==========================================
+# Update (08/04/23)
+# Downloaded the Help files (tutorials and
+# documentations) in the appropriate folder
+# ==========================================
+
 # Remove any previously installed programs with this script
 rm -rf ~/Desktop/LS-PrePost
 rm -rf ~/opt/lsprepost
@@ -29,6 +35,10 @@ tar -xvzf lsprepost.tgz -C ~/opt
 # Change the folder name to some convenient one so that it can be accessed easily
 mv ~/opt/lsprepost*/ ~/opt/lsprepost/
 
+# Downloading the documentation and tutorials inside the extracted directory
+wget -P ~/opt/lsprepost/resource/HelpDocument --user user --password computer https://ftp.lstc.com/user/ls-prepost/$version/doc/linux/Document.zip
+wget -P ~/opt/lsprepost/resource/HelpDocument --user user --password computer https://ftp.lstc.com/user/ls-prepost/$version/doc/linux/Tutor.zip
+
 # Change the directory name inside the actual executable of the program
 ## Extract the version without the dot's and subbranches
 version=$(echo $Filename | grep -oP '(?<=lsprepost-)\d+.\d+' | tr -d '.')
@@ -37,13 +47,3 @@ sed -i 's/DN=".*"/DN="$(pwd)"/g' ~/opt/lsprepost/lspp$version
 # Create a symbolic link to the executable on the desktop
 cd ~/opt/lsprepost
 ln -s $(pwd)/lspp$version ~/Desktop/LS-PrePost
-
-# Run the executable from the desktop depending on user input
-while true; do
-    read -n 1 -p "Do you wish to use LS-PrePost Now? (y/n) " yn
-    case $yn in
-        [Yy]* ) cd ~/Desktop; ./LS-PrePost; exit;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer y or n.";;
-    esac
-done

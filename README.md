@@ -27,6 +27,15 @@ cd ./LS-PrePost
 bash install_lsprepost.sh <paste your own filename, e.g., lsprepost-4.10.5-common_gtk3-23Jun2023.tgz>
 # Remove the GitHub repo
 rm -rf ~/LS-PrePost
+# Testing the installation by trying out a first run
+while true; do
+    read -n 1 -p "Do you wish to use LS-PrePost Now? (y/n) " yn
+    case $yn in
+        [Yy]* ) cd ~/Desktop; ./LS-PrePost; exit;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer y or n.";;
+    esac
+done
 ```
 For any subsequent access to the software, you just need to make the symlink "LS-PrePost" stored in your desktop directory [as "executable"](#opening-ls-prepost-after-installation).
 
@@ -54,7 +63,17 @@ cd ./LS-PrePost
 bash install_lsprepost.sh <paste your own filename, e.g., lsprepost-4.10.5-common_gtk3-23Jun2023.tgz>
 # Remove the github repo
 rm -rf ~/LS-PrePost
+# Testing the installation by trying out a first run
+while true; do
+    read -n 1 -p "Do you wish to use LS-PrePost Now? (y/n) " yn
+    case $yn in
+        [Yy]* ) cd ~/Desktop; ./LS-PrePost; exit;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer y or n.";;
+    esac
+done
 ```
+Similary to the computer installation, the server installation also has a simlink created in the desktop for easily running the software.
 
 ## Opening LS-PrePost After Installation
 For any subsequent access to the software, you just have to make the script created on your desktop as “executable”. To do so, please go to the “Desktop” of your computer and select “LS-PrePost”. Then go to the “Permissions” tab at the top of the dialogue box. Finally, mark the program as executable, like this:
