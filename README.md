@@ -1,3 +1,9 @@
+> [!CAUTION]
+> **This version is deprecated and mostly non-functional.** Following the [$35 billion Synopsys acquisition of Ansys](https://www.tomshardware.com/tech-industry/semiconductors/synopsys-acquires-simulation-specialist-ansys-for-usd35-billion-following-chinese-regulator-approval-merger-to-power-end-to-end-design-platform), the LSTC FTP site has been shut down, breaking the automated download portion of this script. 
+> The rest of the script should still work if you manually grab the Linux/Unix executable and tweak the code yourself. Unfortunately, I don't have access to the new portal to update this script anymore. Hopefully someday! Thanks.
+
+
+
 # LS-PrePost Environment Setup to work in LS-Dyna in Unix OSs
 This repository will shed light on the installation procedure for LS-PrePost: a free pre- and post-processing software used for LS-Dyna, developed by its parent company LSTC. It can be considered as a step-by-step guide to install and run LS-Dyna in Ubuntu or similar Unix operating systems.
 
