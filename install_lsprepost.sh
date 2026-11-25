@@ -1,4 +1,4 @@
-# !/bin/sh
+#!/bin/sh
 # Install LS-PrePost from scratch
 # Written by Tonmoy. Original: 11/01/22
 
@@ -46,4 +46,7 @@ sed -i 's/DN=".*"/DN="$(pwd)"/g' ~/opt/lsprepost/lspp$version
 
 # Create a symbolic link to the executable on the desktop
 cd ~/opt/lsprepost
-ln -s $(pwd)/lspp$version ~/Desktop/LS-PrePost
+chmod a+x $(pwd)/lspp$version
+ln -s $(pwd)/lspp$version "$(xdg-user-dir DESKTOP)/LS-PrePost"
+chmod a+x "$(xdg-user-dir DESKTOP)/LS-PrePost"
+
